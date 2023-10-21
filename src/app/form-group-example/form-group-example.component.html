@@ -1,0 +1,54 @@
+<!-- <div>-----------------Form Group-------------------</div>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-item">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title">
+    </div>
+
+    <div class="form-item">
+        <label for="author">Author</label>
+        <input type="text" formControlName="author">
+    </div>
+
+    <div class="form-item">
+        <label for="pages">Pages</label>
+        <input type="text" formControlName="pages">
+    </div>
+
+    <button class="button" type="submit">submit</button>
+</form> -->
+
+
+<hr>
+
+
+<div>-----------------Nested Form Group-------------------</div>
+
+<form [formGroup]="bookNestedForm" (ngSubmit)="onSubmitNestedFormGroup()">
+    <div class="form-item">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title">
+    </div>
+
+    <div class="form-item">
+        <label for="author">Author</label>
+        <input type="text" formControlName="author">
+    </div>
+
+    <div formGroupName="details">
+        <div class="form-item">
+            <label for="pages">Pages</label>
+            <input type="text" formControlName="pages">
+        </div>
+
+        <div class="form-item">
+            <label for="price">Price</label>
+            <input type="text" formControlName="price">
+        </div>
+    </div>
+
+    <button class="button button--update" (click)="onBookUpdate()">update</button>
+
+    <button class="button" type="submit">submit</button>
+</form>

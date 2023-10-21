@@ -1,0 +1,42 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="form-item">
+        <label for="title">Title</label>
+        <input type="text" formControlName="title">
+    </div>
+
+    <div class="form-item">
+        <label for="author">Author</label>
+        <input type="text" formControlName="author">
+    </div>
+
+    <div formGroupName="details">
+        <div class="form-item">
+            <label for="pages">Pages</label>
+            <input type="text" formControlName="pages">
+        </div>
+
+        <div class="form-item">
+            <label for="price">Price</label>
+            <input type="text" formControlName="price">
+        </div>
+    </div>
+
+    <div formArrayName="addresses">
+        <div *ngFor="let adress of addresses.controls; let i=index">
+            <div class="form-item form-item--address">
+                <label for="{{i}}">Address</label>
+                <input id="address-{{ i }}"  type="text" [formControlName]="i">
+            </div>
+        </div>
+        <button type="button" class="button button--add-address" (click)="addAddress()">Add address</button>
+    </div>
+
+    <button class="button" type="submit">submit</button>
+</form>
+
+
+
+<div style="font-size: 20px;">Book list</div>
+<ng-container *ngFor="let book of bookList">
+    <app-book-item [book]="book"></app-book-item>
+</ng-container>
